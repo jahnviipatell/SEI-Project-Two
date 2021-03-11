@@ -5,16 +5,7 @@ import axios from 'axios'
 
 const Home = () => {
   //! Background
-  // const [background, setBackground] = useState([])
   const [quotes, setQuotes] = useState('')
-
-  // useEffect(() => {
-  //   const getBackgroundData = async () => {
-  //     const response = await axios.get('https://source.unsplash.com/collection/1376954/landscape')
-  //     setBackground(response)
-  //   }
-  //   getBackgroundData()
-  // }, [])
 
   //! Quotes
   useEffect(() => {
@@ -24,7 +15,6 @@ const Home = () => {
       const { data } = await axios.get(randomArray)
       const randomNumber = Math.floor(Math.random() * data.data.length)
       setQuotes(data.data[randomNumber])
-      // console.log(data.data[Math.floor(Math.random() * data.data.length)])
     }
     getRandomQuote()
 
@@ -35,14 +25,16 @@ const Home = () => {
   return (
 
     <div className="background">
-      <div className="quote-text">
-        <p>{quotes.quoteText}</p>
-      </div>
-      <div className="quote-author">
-        <p>{quotes.quoteAuthor}</p>
+      <div className="quote-container">
+        <h1>Quote Garden</h1>
+        <div className="quote-text">
+          <p>{quotes.quoteText}</p>
+        </div>
+        <div className="quote-author">
+          <p>~ {quotes.quoteAuthor}</p>
+        </div>
       </div>
     </div >
-
   )
 }
 

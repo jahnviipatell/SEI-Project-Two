@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import Home from './components/Home'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Motivational from './components/Motivational'
+import Happiness from './components/Happiness'
+import Time from './components/Time'
 
 function App() {
+
   const [background, setBackground] = useState([])
 
   useEffect(() => {
@@ -13,17 +19,28 @@ function App() {
     getBackgroundData()
   }, [])
 
-
-
   return (
-
     <div className="background" style={{ backgroundImage: `url(${background})` }}>
-      <h1>Hello World</h1>
-      <Home />
+      <BrowserRouter className="whole-screen">
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/motivational">
+            <Motivational />
+          </Route>
+          <Route exact path="/happiness">
+            <Happiness />
+          </Route>
+          <Route exact path="/time">
+            <Time />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   )
-
-
 }
+
 
 export default App
