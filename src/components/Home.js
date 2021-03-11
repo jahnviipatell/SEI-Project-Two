@@ -25,13 +25,15 @@ const Home = () => {
   return (
 
     <div className="background">
-      <div className="quote-container">
-        <h1>Quote Garden</h1>
-        <div className="quote-text">
-          <p>{quotes.quoteText}</p>
-        </div>
-        <div className="quote-author">
-          <p>~ {quotes.quoteAuthor}</p>
+      <div className="border">
+        <div className="quote-container">
+          <h1>Quote Garden</h1>
+          <div className="quote-text">
+            <p>{quotes.quoteText}</p>
+          </div>
+          <div className="quote-author">
+            <p>~ {quotes.quoteAuthor}</p>
+          </div>
         </div>
       </div>
     </div >
