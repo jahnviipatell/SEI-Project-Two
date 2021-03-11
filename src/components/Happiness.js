@@ -16,15 +16,17 @@ const Happiness = () => {
   if (!happiness) return null
 
   return (
-    <div>
-      {happiness.map(quote => {
-        return (
-          <li key={quote._id}>
-            <p>{quote.quoteText}</p>
-            <p>{quote.quoteAuthor}</p>
-          </li>
-        )
-      })}
+    <div className="border">
+      <ul>
+        {happiness.map(quote => {
+          return (
+            <li key={quote._id}>
+              <p className="list-quote-text">{quote.quoteText}</p>
+              <p className="list-quote-author">{quote.quoteAuthor}</p>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 

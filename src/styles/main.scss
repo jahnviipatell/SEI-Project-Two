@@ -73,7 +73,7 @@ margin-top: 70px;
   padding-top: 70px;
 }
 
-a {
+a, .home {
   height: 30px;
 	background: transparent;
 	border-radius: 50px;
@@ -82,7 +82,7 @@ a {
 	// letter-spacing: 2px;
 }
 
-a:hover {
+a:hover, .home:hover {
   transform: scale(0.85)
 }
 
@@ -90,6 +90,40 @@ a:hover {
   height: 90%;
   width: 90%;
   border: solid white 5px;
-  background: transparentize($color: grey, $amount: 0.8);
+  background: transparentize($color: grey, $amount: 0.7);
   box-shadow: 0 0 20px 0 white;
+}
+
+ul {
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px 50px;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+  height: 190px;
+  width: 190px;
+  border: 3px solid white;
+  box-shadow: 0 0 20px 0 lightgrey;
+  margin: 18px;
+  padding: 0 10px 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  background: transparentize($color: grey, $amount: 0.3);
+  transition: 0.2s ease-in-out;
+}
+
+li:hover {
+  transform: scale(1.85)
+}
+
+.list-quote-text {
+  font-size: 60%;
+}
+
+.list-quote-author {
+  font-size: 12px;
 }

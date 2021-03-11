@@ -7,7 +7,7 @@ const Motivational = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('https://quote-garden.herokuapp.com/api/v3/quotes?genre=motivational&limit=15')
+      const { data } = await axios.get('https://quote-garden.herokuapp.com/api/v3/quotes?genre=motivational&limit=15&page=3')
       setMotivation(data.data)
     }
     getData()
@@ -16,15 +16,17 @@ const Motivational = () => {
   if (!motivation) return null
 
   return (
-    <div>
-      {motivation.map(quote => {
-        return (
-          <li key={quote._id}>
-            <p>{quote.quoteText}</p>
-            <p>{quote.quoteAuthor}</p>
-          </li>
-        )
-      })}
+    <div className="border">
+      <ul>
+        {motivation.map(quote => {
+          return (
+            <li key={quote._id}>
+              <p className="list-quote-text">{quote.quoteText}</p>
+              <p className="list-quote-author">{quote.quoteAuthor}</p>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 
