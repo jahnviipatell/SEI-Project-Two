@@ -20,14 +20,14 @@ function App() {
   const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
 
   useEffect(() => {
-    setInterval(() => {
-      const getBackgroundData = async () => {
-        const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
-        setBackground(response.data.urls.raw)
-        console.log(response)
-      }
-      getBackgroundData()
-    }, 30000)
+    // setInterval(() => {
+    const getBackgroundData = async () => {
+      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
+      setBackground(response.data.urls.raw)
+      console.log(response)
+    }
+    getBackgroundData()
+    // }, 30000)
 
   }, [])
 
