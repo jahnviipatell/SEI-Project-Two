@@ -3,9 +3,11 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Motivational from './components/Motivational'
-import Happiness from './components/Happiness'
-import Time from './components/Time'
+import Motivational from './components/genres/Motivational'
+import Happiness from './components/genres/Happiness'
+import Time from './components/genres/Time'
+import GenreIndex from './components/GenreIndex'
+import Inspirational from './components/genres/Inspirational'
 
 function App() {
 
@@ -35,6 +37,12 @@ function App() {
           </Route>
           <Route exact path="/time">
             <Time />
+          </Route>
+          <Route path="/genreIndex">
+            <GenreIndex />
+          </Route>
+          <Route>
+            <Inspirational />
           </Route>
         </Switch>
       </BrowserRouter>
