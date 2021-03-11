@@ -8,17 +8,27 @@ import Happiness from './components/genres/Happiness'
 import Time from './components/genres/Time'
 import GenreIndex from './components/GenreIndex'
 import Inspirational from './components/genres/Inspirational'
+import Success from './components/genres/Success'
+import Power from './components/genres/Power'
+import Science from './components/genres/Science'
+import Patience from './components/genres/Patience'
+import Friendship from './components/genres/Friendship'
 
 function App() {
 
-  const [background, setBackground] = useState([])
+  const [background, setBackground] = useState('https://source.unsplash.com/collection/1376954/landscape')
+  const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
 
   useEffect(() => {
-    const getBackgroundData = async () => {
-      const response = await axios.get('https://source.unsplash.com/collection/1376954/landscape')
-      setBackground(response.config.url)
-    }
-    getBackgroundData()
+    setInterval(() => {
+      const getBackgroundData = async () => {
+        const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
+        setBackground(response.data.urls.raw)
+        console.log(response)
+      }
+      getBackgroundData()
+    }, 30000)
+
   }, [])
 
   return (
@@ -41,8 +51,23 @@ function App() {
           <Route path="/genreIndex">
             <GenreIndex />
           </Route>
-          <Route>
+          <Route path="/inspirational">
             <Inspirational />
+          </Route>
+          <Route path="/success">
+            <Success />
+          </Route>
+          <Route path="/power">
+            <Power />
+          </Route>
+          <Route path="/science">
+            <Science />
+          </Route>
+          <Route path="/patience">
+            <Patience />
+          </Route>
+          <Route path="/friendship">
+            <Friendship />
           </Route>
         </Switch>
       </BrowserRouter>

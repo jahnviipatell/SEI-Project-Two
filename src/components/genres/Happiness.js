@@ -22,7 +22,7 @@ const Happiness = () => {
           return (
             <li key={quote._id}>
               <p className="list-quote-text">{quote.quoteText}</p>
-              <p className="list-quote-author">{quote.quoteAuthor}</p>
+              <p className="list-quote-author">~ {quote.quoteAuthor}</p>
             </li>
           )
         })}

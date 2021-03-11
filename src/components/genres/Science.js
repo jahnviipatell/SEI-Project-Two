@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Time = () => {
+const Science = () => {
 
-  const [time, setTime] = useState(null)
+  const [science, setScience] = useState(null)
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('https://quote-garden.herokuapp.com/api/v3/quotes?genre=time&limit=15&page=9')
-      setTime(data.data)
+      const { data } = await axios.get('https://quote-garden.herokuapp.com/api/v3/quotes?genre=science&limit=15&page=1')
+      setScience(data.data)
     }
     getData()
   }, [])
 
-  if (!time) return null
+  if (!science) return null
 
   return (
     <div className="border">
       <ul>
-        {time.map(quote => {
+        {science.map(quote => {
           return (
             <li key={quote._id}>
               <p className="list-quote-text">{quote.quoteText}</p>
@@ -32,4 +32,4 @@ const Time = () => {
 
 }
 
-export default Time
+export default Science
