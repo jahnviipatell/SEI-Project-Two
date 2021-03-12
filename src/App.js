@@ -10,8 +10,8 @@ import QuotePage from './components/QuotePage'
 
 function App() {
 
-  const [background, setBackground] = useState('https://source.unsplash.com/collection/1376954/landscape')
   const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
+  const [background, setBackground] = useState(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
 
   useEffect(() => {
     // setInterval(() => {
