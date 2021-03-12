@@ -12,16 +12,16 @@ function App() {
 
   const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
   //!! UNCOMMENT BELOW
-  // const [background, setBackground] = useState('')
-  //!! DELETE BELOW
-  const [background, setBackground] = useState('https://source.unsplash.com/collection/1376954/landscape')
+  const [background, setBackground] = useState('')
+  // //!! DELETE BELOW
+  // const [background, setBackground] = useState('https://source.unsplash.com/collection/1376954/landscape')
 
 
   const getBackground = () => {
 
     const getBackgroundData = async () => {
-      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954/1600x900`)
-      setBackground(response.data.urls.raw)
+      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
+      setBackground(response.data.urls.full)
     }
     getBackgroundData()
   }
@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     getBackground()
     // setInterval(() => {
-    // getBackground()
+    //   getBackground()
     // }, 30000)
 
   }, [])
@@ -50,7 +50,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </div>
+    </div >
   )
 }
 
