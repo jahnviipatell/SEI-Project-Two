@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const Time = () => {
+const QuotePage = () => {
 
-  const [time, setTime] = useState(null)
+  const [quotes, setQuotes] = useState(null)
+  const { genre } = useParams()
+  console.log(useParams())
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('https://quote-garden.herokuapp.com/api/v3/quotes?genre=time&limit=15&page=9')
-      setTime(data.data)
+      const { data } = await axios.get(`https://quote-garden.herokuapp.com/api/v3/quotes?genre=${genre}&limit=15&page=1`)
+      setQuotes(data.data)
+      console.log('HERE: ', data)
     }
     getData()
   }, [])
 
-  if (!time) return null
+  if (!quotes) return null
 
   return (
     <div className="border">
       <ul>
-        {time.map(quote => {
+        {quotes.map(quote => {
           return (
             <li key={quote._id}>
               <p className="list-quote-text">{quote.quoteText}</p>
@@ -32,4 +36,4 @@ const Time = () => {
 
 }
 
-export default Time
+export default QuotePage

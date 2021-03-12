@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
+
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Motivational from './components/genres/Motivational'
-import Happiness from './components/genres/Happiness'
-import Time from './components/genres/Time'
 import GenreIndex from './components/GenreIndex'
-import Inspirational from './components/genres/Inspirational'
-import Success from './components/genres/Success'
-import Power from './components/genres/Power'
-import Science from './components/genres/Science'
-import Patience from './components/genres/Patience'
-import Friendship from './components/genres/Friendship'
+import QuotePage from './components/QuotePage'
+
 
 function App() {
 
@@ -39,35 +33,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/motivational">
-            <Motivational />
-          </Route>
-          <Route exact path="/happiness">
-            <Happiness />
-          </Route>
-          <Route exact path="/time">
-            <Time />
-          </Route>
-          <Route path="/genreIndex">
+          <Route path="/genres">
             <GenreIndex />
           </Route>
-          <Route path="/inspirational">
-            <Inspirational />
-          </Route>
-          <Route path="/success">
-            <Success />
-          </Route>
-          <Route path="/power">
-            <Power />
-          </Route>
-          <Route path="/science">
-            <Science />
-          </Route>
-          <Route path="/patience">
-            <Patience />
-          </Route>
-          <Route path="/friendship">
-            <Friendship />
+          <Route path="/:genre">
+            <QuotePage />
           </Route>
         </Switch>
       </BrowserRouter>
