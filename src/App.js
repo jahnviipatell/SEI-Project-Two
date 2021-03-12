@@ -11,16 +11,25 @@ import QuotePage from './components/QuotePage'
 function App() {
 
   const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
-  const [background, setBackground] = useState(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
+  //!! UNCOMMENT BELOW
+  // const [background, setBackground] = useState('')
+  //!! DELETE BELOW
+  const [background, setBackground] = useState('https://source.unsplash.com/collection/1376954/landscape')
 
-  useEffect(() => {
-    // setInterval(() => {
+
+  const getBackground = () => {
+
     const getBackgroundData = async () => {
-      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
+      const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954/1600x900`)
       setBackground(response.data.urls.raw)
-      console.log(response)
     }
     getBackgroundData()
+  }
+
+  useEffect(() => {
+    getBackground()
+    // setInterval(() => {
+    // getBackground()
     // }, 30000)
 
   }, [])
