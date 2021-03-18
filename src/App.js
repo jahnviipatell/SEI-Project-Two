@@ -10,7 +10,10 @@ import QuotePage from './components/QuotePage'
 
 function App() {
 
-  const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
+  // const API_KEY = 'Nj9fZ3kaT5ScBE7kA82DaVtgydjq6Sux7ddoHHR_DsE'
+  const API_KEY = process.env.REACT_APP_ACCESS_TOKEN
+  // console.log(API_KEY)
+
   //!! UNCOMMENT BELOW
   const [background, setBackground] = useState('')
   // //!! DELETE BELOW
@@ -21,15 +24,15 @@ function App() {
 
     const getBackgroundData = async () => {
       const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${API_KEY}&collections=1376954`)
-      setBackground(response.data.urls.full)
+      setBackground(response.data.urls.regular)
     }
     getBackgroundData()
   }
 
   useEffect(() => {
-    getBackground()
+    // getBackground()
     // setInterval(() => {
-    //   getBackground()
+    getBackground()
     // }, 30000)
 
   }, [])
