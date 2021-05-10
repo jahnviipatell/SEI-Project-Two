@@ -30,10 +30,10 @@ function App() {
   }
 
   useEffect(() => {
-    // getBackground()
-    // setInterval(() => {
     getBackground()
-    // }, 30000)
+    setInterval(() => {
+      getBackground()
+    }, 30000)
 
   }, [])
 
